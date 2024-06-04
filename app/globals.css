@@ -3,31 +3,97 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color-rgb: 255, 87, 34; /* Vibrant orange */
+  --secondary-color-rgb: 33, 150, 243; /* Bright blue */
+  --accent-color-rgb: 0, 188, 212; /* Teal */
+  --foreground-rgb: 255, 255, 255; /* White text */
+  --background-start-rgb: 255, 235, 238; /* Light pink */
+  --background-end-rgb: 255, 248, 225; /* Light yellow */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255; /* White text */
+    --background-start-rgb: 38, 50, 56; /* Dark gray */
+    --background-end-rgb: 0, 0, 0; /* Black */
   }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  display: flex;
+  flex-direction: column;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+main {
+  flex: 1;
+}
+
+/* Additional styles for the Vibrant and Dynamic theme */
+a {
+  color: rgb(var(--secondary-color-rgb));
+}
+
+button {
+  background-color: rgb(var(--primary-color-rgb));
+  color: rgb(var(--foreground-rgb));
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(var(--primary-color-rgb));
+  transform: scale(1.05);
+}
+
+.header {
+  background-color: rgb(var(--secondary-color-rgb));
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(var(--foreground-rgb));
+}
+
+.footer {
+  background-color: rgb(var(--primary-color-rgb));
+  padding: 1rem;
+  text-align: center;
+  color: rgb(var(--foreground-rgb));
+  margin-top: auto;
+}
+
+.card {
+  background-color: rgba(var(--accent-color-rgb), 0.9);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.footer .social-icons a {
+  color: black;
+}
+
+.footer .social-icons a:hover {
+  color: white;
 }
