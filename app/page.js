@@ -8,24 +8,23 @@ import { LoadScript, useJsApiLoader } from '@react-google-maps/api'
 import { useState } from 'react'
 
 export default function Home() {
-  const [source,setSource]=useState([])
-  const [destination,setDestination]=useState([])
+  const [source, setSource] = useState([]);
+  const [destination, setDestination] = useState([]);
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
-    <SourceContext.Provider value={{source,setSource}}>
-      <DestinationContext.Provider value={{destination,setDestination}}>
-      <LoadScript 
-      libraries={['places']}
-      googleMapsApiKey={"AIzaSyAlIDUiTW6M9p6qb7mHsMCvqk0_OMO3MV0"}>
-      <div className='p-6 grid grid-cols-1 md:grid-cols-3 gap-5'>
-        <div>
-            <SearchSection/>
-            
-        </div>
-        <div className='col-span-2'>
-            <GoogleMapSection/>
+    <SourceContext.Provider value={{ source, setSource }}>
+      <DestinationContext.Provider value={{ destination, setDestination }}>
+        <LoadScript libraries={['places']} googleMapsApiKey={googleMapsApiKey}>
+          <div className='p-6 grid grid-cols-1 md:grid-cols-3 gap-5'>
+            <div>
+              <SearchSection />
+            </div>
+            <div className='col-span-2'>
+              <GoogleMapSection />
+            </div>
           </div>
-      </div>
-      </LoadScript>
+        </LoadScript>
       </DestinationContext.Provider>
     </SourceContext.Provider>
   )
