@@ -1,6 +1,6 @@
 import { Montserrat } from 'next/font/google';
 import './globals.css';
-import { ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Head from 'next/head';

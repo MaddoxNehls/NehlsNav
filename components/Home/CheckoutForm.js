@@ -37,7 +37,7 @@ function CheckoutForm({ amount }) {
       clientSecret: secretKey,
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/payment-confirm"
+        return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-confirm`
       }
     });
 
